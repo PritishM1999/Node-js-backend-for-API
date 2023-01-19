@@ -47,7 +47,6 @@ app.use(bodyParser.json())
 //     // next();
 // })
 
-
 app.use("/posts", (req, res, next) => {
     console.log("Hello");
     const token = req.headers.authorization?.split("test ")[1];

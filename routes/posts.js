@@ -64,8 +64,8 @@ router.get("/posts", async (req, res) => {
 router.put("/posts/:postId", async (req, res) => {
     try{
         console.log("I m in update posts");
-        const updatedposts = await Post.updateOne({_id : req.params.id}? req.body: {_id : req.params.id});
-        // const updatedposts = await User.findOne({_id : req.params.id});
+        const updatedposts = await Post.updateOne({_id : req.params.postId}? req.body: {_id : req.params.postId});
+        // const updatedposts = await User.findOne({_id : req.params.postId});
             res.status(200).json({
                 status: "Post updated - Success",
                 updatedposts
@@ -85,13 +85,13 @@ router.put("/posts/:postId", async (req, res) => {
 });
 
 
-//Update posts
+//Delete posts
 router.delete("/posts/:postId", async (req, res) => {
     try{
         console.log("I m in delete posts");
         // console.log(req.body);
         // console.log(req.user);
-        await Post.deleteOne({_id : req.params.id}, req.body);
+        await Post.deleteOne({_id : req.params.postId}, req.body);
             res.status(200).json({
             status: "Post deleted - Success",
         });
